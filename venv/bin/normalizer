@@ -1,4 +1,4 @@
-#!/home/sumukh/Quiz-Project/venv/bin/python3
+#!/home/sumukh/Quiz-Project/Mad-2-Project-Quiz/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

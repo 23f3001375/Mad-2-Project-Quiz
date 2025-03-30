@@ -392,6 +392,44 @@ class AddQuestion(Resource):
             "correctOption": new_question.correctOption,
         },201
     
+class EditQuestion(Resource):
+    @auth_required('token')
+    @roles_required('admin')
+    def post(self,question_id):
+        data=request.get_json()
+        question=Questions.query.filter_by(question_id=question_id).first()
+        if not question:
+            return {"message":"Question not Found"},400
+        if 'question' in data:
+            question.question = data['question']
+        if 'option1' in data:
+            question.option1 = data['option1']
+        if 'option2' in data:
+            question.option2 = data['option2']
+        if 'option3' in data:
+            question.option3 = data['option3']
+        if 'option4' in data:
+            question.option4 = data['option4']
+        if 'correctOption' in data:
+            question.correctOption = data['correctOption']
+        try:
+            db.session.commit()
+            return {"success": True, "message": "Question updated successfully"},200
+        except Exception as e:
+            db.session.rollback()
+            return {"success": False, "message": "Database error", "error": str(e)}, 500  
+    
+class DeleteQuestion(Resource):
+    @auth_required('token')
+    @roles_required('admin')
+    def post(self,question_id):
+        question=Questions.query.filter_by(question_id=question_id).first()
+        if not question:
+            return {"message":"Question Not Found","success":False},400
+        db.session.delete(question)
+        db.session.commit()
+        return {"message":"Question deleted","success":True},200
+    
 class UserSubjects(Resource):
     @auth_required('token')
     @roles_required('user')

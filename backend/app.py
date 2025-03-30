@@ -1,10 +1,10 @@
 from Modules.celery_init import celery_init_app
 from Modules.config import Configuartion, DevelopmentConfig
 from flask import Flask, request, jsonify,send_from_directory
-from Modules.models import Questions, db, User, Role, UserRoles
+from Modules.models import db, User, Role
 from flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin,hash_password
 from werkzeug.security import generate_password_hash,check_password_hash
-from Modules.resources import  AddChapter, AddQuestion, AddQuiz, AddSubjects, AdminSummary, ChangeUserStatus, DeleteChapter, DeleteQuiz, DeleteSubject, EditChapter, EditQuiz, EditSubject, ManageChapters, ManageQuiz,ManageSubjects, ManageUsers,AdminHome, Question, UserChapters,UserHome, UserQuestions, UserQuizzes, UserScores, UserSubjects, UserSubmit, UserSummary,api
+from Modules.resources import  AddChapter, AddQuestion, AddQuiz, AddSubjects, AdminSummary, ChangeUserStatus, DeleteChapter, DeleteQuestion, DeleteQuiz, DeleteSubject, EditChapter, EditQuestion, EditQuiz, EditSubject, ManageChapters, ManageQuiz,ManageSubjects, ManageUsers,AdminHome, Question, UserChapters,UserHome, UserQuestions, UserQuizzes, UserScores, UserSubjects, UserSubmit, UserSummary,api
 from Modules.tasks import monthly_report
 from celery.schedules import crontab
 from Modules.cache_setup import cache
@@ -67,6 +67,8 @@ api.add_resource(DeleteQuiz,'/api/admin/manage_quizzes/deletequiz/<int:quiz_id>'
 api.add_resource(EditQuiz,'/api/admin/manage_quizzes/editquiz/<int:quiz_id>')
 api.add_resource(Question,'/api/admin/questions/<int:quiz_id>')
 api.add_resource(AddQuestion,'/api/admin/questions/add/<int:quiz_id>')
+api.add_resource(EditQuestion,'/api/admin/questions/edit/<int:question_id>')
+api.add_resource(DeleteQuestion,'/api/admin/questions/delete/<int:question_id>')
 api.add_resource(UserSubjects,'/api/user/subjects')
 api.add_resource(UserChapters,'/api/user/subjects/<int:subject_id>/chapters')
 api.add_resource(UserQuizzes,'/api/user/chapters/<int:chapter_id>/quizzes')

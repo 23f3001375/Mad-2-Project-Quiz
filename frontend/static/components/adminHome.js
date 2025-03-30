@@ -1,55 +1,60 @@
 export default{
     template:`
-    <div class="container">
-        <div class="button-wrapper mb-2">
-          <button class="btn btn-primary" @click="csvReport">Download CSV</button>
-        </div>
-        <div class="row">
-        <div class="col-md-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Total Users</h5>
-              <p class="card-text">{{usersCount}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div class="col-md-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Total Subjects</h5>
-              <p class="card-text">{{ subjectsCount }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div class="col-md-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Total Chapters</h5>
-              <p class="card-text">{{ chaptersCount }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div class="col-md-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Total Quizzes</h5>
-              <p class="card-text">{{ quizCount }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div class="col-md-3">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Total Quiz Attempts</h5>
-              <p class="card-text">{{ quizAttemptsCount }}</p>
-            </div>
-          </div>
-        </div>        
+<div class="container">
+    <div class="button-wrapper mb-2">
+        <button class="btn btn-primary" @click="csvReport">Download CSV</button>
     </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="card-text">{{ usersCount }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Subjects</h5>
+                    <p class="card-text">{{ subjectsCount }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Chapters</h5>
+                    <p class="card-text">{{ chaptersCount }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Quizzes</h5>
+                    <p class="card-text">{{ quizCount }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Total Quiz Attempts</h5>
+                    <p class="card-text">{{ quizAttemptsCount }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     `,
     data:function(){
         return{
